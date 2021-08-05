@@ -678,7 +678,7 @@
 #define Z_MIN_POS 0 
 #define X_MAX_POS X_BED_SIZE  
 #define Y_MAX_POS Y_BED_SIZE  
-#define Z_MAX_POS 410 
+#define Z_MAX_POS 500 
 // If enabled, axes won't move below MIN_POS in response to movement commands.  
 // #define MIN_SOFTWARE_ENDSTOPS  
 // If enabled, axes won't move above MAX_POS in response to movement commands.  
@@ -835,11 +835,13 @@
 // @section homing  
 // The center of the bed is at (X=0, Y=0) 
 //#define BED_CENTER_AT_0_0 
+
 // Manually set the home position. Leave these undefined for automatic settings.  
 // For DELTA this is the top-center of the Cartesian print volume.  
-//#define MANUAL_X_HOME_POS 0 
-//#define MANUAL_Y_HOME_POS 0 
-//#define MANUAL_Z_HOME_POS 0 
+//#define MANUAL_X_HOME_POS -10
+//#define MANUAL_Y_HOME_POS 10
+//#define MANUAL_Z_HOME_POS -2.29
+ 
 // Use "Z Safe Homing" to avoid homing with a Z probe outside the bed area. 
 //  
 // With this feature enabled: 
@@ -851,8 +853,10 @@
 //  
 #define Z_SAFE_HOMING 
 #if ENABLED(Z_SAFE_HOMING)  
-  #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE - 10) / 2)    // X point for Z homing when homing all axis (G28).  
-  #define Z_SAFE_HOMING_Y_POINT ((Y_BED_SIZE - 10) / 2)    // Y point for Z homing when homing all axis (G28).  
+  #define Z_SAFE_HOMING_X_POINT ((X_BED_SIZE - 10) / 2)    // X point for Z homing when homing all axes (G28).  
+  #define Z_SAFE_HOMING_Y_POINT ((Y_BED_SIZE - 10) / 2)    // Y point for Z homing when homing all axes (G28).  
+//#define Z_SAFE_HOMING_X_POINT 0// X point for Z homing
+//#define Z_SAFE_HOMING_Y_POINT 0// Y point for Z homing
 #endif  
 // Homing speeds (mm/m) 
 #define HOMING_FEEDRATE_XY (50*60)  
